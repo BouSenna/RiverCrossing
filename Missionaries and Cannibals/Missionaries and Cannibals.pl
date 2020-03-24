@@ -60,6 +60,11 @@ cross([M, C, _], [M, New_C, 'boat on west shore'], Counter):-
   C > 1,
   New_C is C - 2.
 
+unsafe([M, C, _]):-
+  M \= 3,
+  M \= 0,
+  M =\= C.
+
 % Check whether the given value is even or not
 is_even(N):- 
   mod(N, 2) =:= 0.
