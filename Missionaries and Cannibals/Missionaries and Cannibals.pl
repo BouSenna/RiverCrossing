@@ -65,6 +65,14 @@ unsafe([M, C, _]):-
   M \= 0,
   M =\= C.
 
+moves([3,3, _], _, Moves, Moves).
+moves(CurState, Counter, Visited, Moves):-
+  cross(CurState, NewState, Counter),
+  \+ unsafe(NewState),
+  \+ member(NewState, Visited),
+  Counter1 is Counter + 1,
+  moves(NewState, Counter1, [NewState|Visited], Moves).
+
 % Check whether the given value is even or not
 is_even(N):- 
   mod(N, 2) =:= 0.
