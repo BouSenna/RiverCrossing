@@ -73,6 +73,14 @@ moves(CurState, Counter, Visited, Moves):-
   Counter1 is Counter + 1,
   moves(NewState, Counter1, [NewState|Visited], Moves).
 
+% Reverse a list
+reverse_list(L, R) :-  
+  reverse_list(L, R, []).
+reverse_list([], Temp, Temp) :-
+  !.
+reverse_list([H|T], R, Temp) :- 
+  reverse_list(T, R, [H|Temp]). 
+
 % Check whether the given value is even or not
 is_even(N):- 
   mod(N, 2) =:= 0.
