@@ -59,3 +59,7 @@ cross([M, C, _], [M, New_C, 'boat on west shore'], Counter):-
   \+ is_even(Counter),
   C > 1,
   New_C is C - 2.
+
+% Check whether the given value is even or not
+is_even(N):- 
+  mod(N, 2) =:= 0.
