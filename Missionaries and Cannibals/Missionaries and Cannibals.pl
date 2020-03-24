@@ -76,3 +76,7 @@ moves(CurState, Counter, Visited, Moves):-
 % Check whether the given value is even or not
 is_even(N):- 
   mod(N, 2) =:= 0.
+
+cross_the_river(Moves):-
+  moves([0, 0, X], 0, [[0, 0, 'boat on west shore']], Reversed_Moves),
+  reverse_list(Reversed_Moves, Moves).
